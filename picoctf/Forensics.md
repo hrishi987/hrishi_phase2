@@ -26,3 +26,63 @@ picoCTF{beep_boop_im_in_space}
 
 ***
 
+# 2. Trivial Flag Transfer Protocol
+
+> Figure out how they moved the flag.
+
+## Solution:
+
+- used wireshark export objects to get a bunch of files from the pcap
+- it had three picture?.bmp files and a program.deb file, along with plan and instructions files which had gibberish
+- decoder the gibberish in instructions.txt using online decoder to get `"TFTP DOESNT ENCRYPT OUR TRAFFICS .WE MUST DISGUISE OUR FLAG TRANSFER . FIGURE OUT A WAY TO HIDE THE FLAG AND I WILL CHECK BACK FOR THE PLAN"`
+- decoded the text in `plan` file to get `"I USED THE PROGRAM AND HID IT WITH - DUED I LIG EN CE. CHECKOUT THE PHOTOS"`
+- used steghide to extract data from the pictures using command `steghide extract -sf picture?.bmp` for all pictures
+- got stuck on the passphrase for a while and then figured out it was DUEDILIGENCE as given in the txt file
+- got flag.txt from picture3.bmp
+
+
+## Flag:
+
+```
+picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
+```
+
+## Concepts learnt:
+
+- steghide command
+- convenient online decoder
+- working with wireshark and pcap files
+
+## Resources:
+
+- [decoder](https://www.cachesleuth.com/multidecoder/)
+
+
+***
+
+# 3. tunn3l v1s10n
+
+> We found this file. Recover the flag.
+
+## Solution:
+
+- used `binwalk` tool to get that the file has smthn to do with "StuffIt Deluxe Segment (data)"
+- on googling, found a stackoverflow answer from which i understood i was goin in the wrong direction and these are "false positives"
+- on using `exiftool` on the file, i came to know that its a .bmp file img. 
+
+
+## Flag:
+
+```
+picoCTF{}
+```
+
+## Concepts learnt:
+
+- 
+## Resources:
+
+- []()
+
+
+***
