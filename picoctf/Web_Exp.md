@@ -80,7 +80,7 @@ picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_9451989d}
 
 ***
 
-# 2. Cookies
+# 3. Cookies
 
 > Who doesn't love cookies? Try to figure out the best one. http://mercury.picoctf.net:21485/
 

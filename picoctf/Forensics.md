@@ -60,29 +60,4 @@ picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
 
 ***
 
-# 3. tunn3l v1s10n
 
-> We found this file. Recover the flag.
-
-## Solution:
-
-- used `binwalk` tool to get that the file has smthn to do with "StuffIt Deluxe Segment (data)"
-- on googling, found a stackoverflow answer from which i understood i was goin in the wrong direction and these are "false positives"
-- on using `exiftool` on the file, i came to know that its a .bmp file img. 
-
-
-## Flag:
-
-```
-picoCTF{}
-```
-
-## Concepts learnt:
-
-- 
-## Resources:
-
-- []()
-
-
-***
