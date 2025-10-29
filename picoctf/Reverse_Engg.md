@@ -92,24 +92,23 @@ picoCTF{jU5t_a_s1mpl3_an4gr4m_4_u_1fb380}
 ## Solution:
 
 - used `file` command on the file and understood that it contains `assembler source ASCII text`
+- opened the code in vscode and saw the "You win" string inside .L0
+- on reading up regarding assembly code syntax, was able to understand that in main func, .L0 gets printed when func returns 0. So tried seein whats goin on in func.
+- understood that its storing diff values in registers by givin specific addresses, in the end it does shifting as given in the hint(lsl does left shift)
+- googled a bit abt shifting calculation and got the number 1813(85<<6 and then divided by 3) and converted that into hex
 
 
-```
-put codes & terminal outputs here using triple backticks
-
-you may also use ```python for python codes for example
-```
 
 ## Flag:
 
 ```
-picoCTF{}
+picoCTF{00000715}
 
 ```
 
 ## Concepts learnt:
 
-- 
+- reading basic assembly source
 
 
 
