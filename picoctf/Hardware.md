@@ -32,16 +32,28 @@ nite{100010011000}
 
 ## Solution:
 - ran `file ` command on the firmware.elf and found that its `ELF 32-bit LSB executable, Atmel AVR 8-bit`. Found that its an executable for AVR microcontrollers
+- tried to reverse engineer the file
+- used avr bin utils and found multiple `EOR`s and on searching found out that XOR seem to have been used
+- tried a pythons script which goes through the file bytes, iterates through 1-200 to get random key and decode the XOR
+- searched manually for flag like ASCII by saving the dump in file.txt and searching "CTF{" and got flag
+```py
+byt = open("firmware.elf", "rb").read()
+
+for key in range(1, 200):
+    decoded = bytes(x ^ key for x in byt)
+    print(decoded)
+```
 
 ## Flag:
 
 ```
-
+TFCCTF{Th1s_1s_som3_s1mpl3_4rdu1no_f1rmw4re}
 ```
 
 ## Concepts learnt:
 
-- 
+- rev engg practise
+- workin with XOR
 
 
 
