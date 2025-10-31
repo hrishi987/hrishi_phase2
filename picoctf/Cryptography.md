@@ -92,5 +92,53 @@ picoCTF{n33d_a_lArg3r_e_ccaa7776}
 
 ***
 
+# 3. rsa_oracle
+
+> Can you abuse the oracle?
+An attacker was able to intercept communications between a bank and a fintech company. They managed to get the message (ciphertext) and the password that was used to encrypt the message.
+After some intensive reconassainance they found out that the bank has an oracle that was used to encrypt the password and can be found here nc titan.picoctf.net 51847. Decrypt the password and use it to decrypt the message. The oracle can decrypt anything except the password.
+
+## Solution:
+
+- tried decrypting the password directly using the program but that wasnt allowed.
+- read up on RSA encryption to understand how it works. Essentially if C = E(m1) is the encrypted m1 msg, then E(m1) . `E(m2) = m1 ^e mod n . m2 ^e mod n = E(m1.m2)`
+- creatin a custom python script to do this:
+```py
+pwd = 2336150584734702647514724021470643922433811330098144930425575029773908475892259185520495303353109615046654428965662643241365308392679139063000973730368839
+rand = int(input("Custom encrypted msg : "))
+c = pwd*rand
+print(f"Msg to decrypt : {c}")
+m2 = int(input("Enter decrypted text as hex: "), 16)  
+
+orig = m2 // ord(bytes('a',"utf-8"))
+m = orig.to_bytes(len(str(orig)), "big").decode("utf-8").lstrip("\x00")
+print(m)
+
+```
+- got this output `60f50` . Used openssl to get the flag from secret.enc
+```bash
+hrishi@LAPTOP-AS47JO28:~/Cryptonite/hrishi_phase2/picoctf$ openssl enc -aes-256-cbc -d -in secret.enc -pass pass:60f50
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better.
+picoCTF{su((3ss_(r@ck1ng_r3@_60f50766}
+```
+
+
+## Flag:
+
+```
+picoCTF{su((3ss_(r@ck1ng_r3@_60f50766}
+```
+
+## Concepts learnt:
+
+- rsa decoding
+## Resources:
+
+- [RSA](https://www.geeksforgeeks.org/computer-networks/rsa-algorithm-cryptography/)
+
+
+***
+
 
 

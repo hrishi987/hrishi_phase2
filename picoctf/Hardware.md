@@ -25,5 +25,56 @@ nite{100010011000}
 
 ***
 
+# 2. bare-metal-alchemist
+
+> my friend recommended me this anime but i think i've heard a wrong name.
+
+
+## Solution:
+- ran `file ` command on the firmware.elf and found that its `ELF 32-bit LSB executable, Atmel AVR 8-bit`. Found that its an executable for AVR microcontrollers
+
+## Flag:
+
+```
+
+```
+
+## Concepts learnt:
+
+- 
+
+
+
+***
+
+# 3. i_like_logic
+
+> i like logic and i like files, apparently, they have something in common, what should my next step be.
+
+
+
+## Solution:
+- searched up abt .sal file extension and found out that its a  `Saleae Logic 2 Capture Format file for digital signal data`
+- ran strings on a digital.bin file and saw the code `<SALEAE>` too. Read up on sal files Found a software to download to analyse this called `Logic 2`
+- used the analyzer tool there for channel 3 and got this in btwn a bunch of text 
+
+## Flag:
+
+```
+FCSC{b1dee4eeadf6c4e60aeb142b0b486344e64b12b40d1046de95c89ba5e23a9925}
+```
+
+## Concepts learnt:
+
+- learned abt .sal files and LOGIC 2 software
+
+## Resources:
+
+- [LOGIC 2](https://support.saleae.com/product/getting-started/record)
+- [more readin](https://file.org/extension/sal)
+
+
+
+***
 
 
